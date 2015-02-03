@@ -1036,4 +1036,23 @@ public interface CloudFoundryOperations {
 	 */
 	void unbindSecurityGroup(String orgName, String spaceName, String securityGroupName);
 	
+	
+	/**
+	 * Get Environment variables
+	 * 
+	 * @param appId
+	 * @return
+	 */
+	Map<String, Object> getEnvValues(String appId);
+	
+	
+	/**
+	 *  Get Environment variables
+	 *  
+	 * @param appId
+	 * @return
+	 */
+	String getEnvValuesAsString(String appId);
+	
+	
 }

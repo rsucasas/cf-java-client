@@ -680,4 +680,16 @@ public class CloudFoundryClient implements CloudFoundryOperations {
 	public List<CloudSpace> getSpacesBoundToSecurityGroup(String securityGroupName) {
 		return cc.getSpacesBoundToSecurityGroup(securityGroupName);
 	}
+	
+	@Override
+	public Map<String, Object> getEnvValues(String appId) 
+	{
+		return cc.getEnvValues(appId);
+	}
+	
+	@Override
+	public String getEnvValuesAsString(String appId) {
+		return cc.getEnvValuesAsString(appId);
+	}
+	
 }

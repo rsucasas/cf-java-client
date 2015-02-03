@@ -294,4 +294,10 @@ public interface CloudControllerClient {
 	void bindSecurityGroup(String orgName, String spaceName, String securityGroupName);
 
 	void unbindSecurityGroup(String orgName, String spaceName, String securityGroupName);
+	
+	// New Operations: get all environment properties
+	
+	Map<String, Object> getEnvValues(String appId);
+
+	String getEnvValuesAsString(String appId);
 }

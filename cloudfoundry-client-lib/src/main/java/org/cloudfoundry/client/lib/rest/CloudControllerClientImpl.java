@@ -2513,5 +2513,39 @@ public class CloudControllerClientImpl implements CloudControllerClient {
 
 		getRestTemplate().delete(getUrl(path), pathVariables);
 	}
+	
+	
+	/**
+	 * Get all the environment variables
+	 * 
+	 * Example call:
+	 * https://api.111.211.122.273.xip.io/v2/apps/7741aade-efdd-4045-8827-5f3ef1b1072e/env
+	 * 
+	 * @param appId
+	 */
+	@Override
+	public Map<String, Object> getEnvValues(String appId) {
+		String url = getUrl("/v2/apps/{guid}/env");
+		Map<String, Object> urlVars = new HashMap<String, Object>();
+		urlVars.put("guid", appId);
+		String resp = restTemplate.getForObject(url, String.class, urlVars);
+		return JsonUtil.convertJsonToMap(resp);
+	}
+	
+	
+	/**
+	 * 
+	 * @param appId
+	 * @return
+	 */
+	@Override
+	public String getEnvValuesAsString(String appId) {
+		String url = getUrl("/v2/apps/{guid}/env");
+		Map<String, Object> urlVars = new HashMap<String, Object>();
+		urlVars.put("guid", appId);
+		String resp = restTemplate.getForObject(url, String.class, urlVars);
+		return resp;
+	}
+	
 
 }
